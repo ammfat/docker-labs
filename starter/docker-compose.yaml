@@ -1,0 +1,10 @@
+version: '3.0'
+
+services:
+  nginx-example:
+    container_name: nginx-example
+    image: nginx:latest
+  nginx-example-alt:
+    container_name: nginx-example-alt
+    image: nginx:latest
+    
