@@ -1,0 +1,16 @@
+version: '3.0'
+
+services:
+  nginx-port-1:
+    image: nginx:latest
+    container_name: nginx-port-1
+    ports:
+      - "8081:80/tcp"
+  nginx-port-2:
+    image: nginx:latest
+    container_name: nginx-port-2
+    ports:
+      - protocol: tcp
+        target: 80
+        published: 8082
+        mode: host
