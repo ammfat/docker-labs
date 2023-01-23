@@ -1,0 +1,16 @@
+version: '3.0'
+
+services:
+  nginx-port-1:
+    image: nginx:latest
+    container_name: nginx-port-1
+    ports:
+      - "8081:80/tcp"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 100M
+        reservations:
+          cpus: '0.25'
+          memory: 50M
