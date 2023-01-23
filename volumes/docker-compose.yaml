@@ -1,0 +1,34 @@
+version: '3.0'
+
+services:
+  mongodb-1:
+    image: mongo:latest
+    container_name: mongodb-1
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ammfat
+      MONGO_INITDB_ROOT_PASSWORD: ammfat
+      MONGO_INITDB_DATABASE: admin
+    volumes:
+      - "mongo-data-1:/data/db"
+  mongodb-2:
+    image: mongo:latest
+    container_name: mongodb-2
+    ports:
+      - 27018:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ammfat
+      MONGO_INITDB_ROOT_PASSWORD: ammfat
+      MONGO_INITDB_DATABASE: admin
+    volumes:
+      - type: volume
+        source: "mongo-data-2"
+        target: "/data/db"
+        read_only: false
+
+volumes:
+  mongo-data-1:
+    name: mongo-data-1
+  mongo-data-2:
+    name: mongo-data-2
